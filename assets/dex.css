@@ -24,5 +24,7 @@
 /* Shift the desktop illustration one fifth of the hero width to the right. */
 @media(min-width:601px){.hero .hero-scene .art-frame>img{transform:translateX(20%)}}
 
-.feature-partners{max-width:1240px;margin:0 auto 42px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.feature-partner{border:1px solid #eed6e1;border-radius:20px;background:#fffcfa;padding:24px 18px;text-align:center}.feature-partner .dex-art{margin:12px auto 22px;transform:scale(1.25)}.feature-partner>small{color:#b47d98;font-size:10px;letter-spacing:.8px}.feature-partner h3{font-size:19px;color:#795367;margin:8px 0 10px;font-weight:600}.feature-partner p{font-size:12px;color:#927383;margin:0;line-height:1.9}.feature-partners+.pokedex{margin-top:0}
-@media(max-width:1320px){.feature-partners{margin-left:40px;margin-right:40px}}@media(max-width:900px){.feature-partners{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:700px){.feature-partners{margin-left:22px;margin-right:22px;gap:12px;margin-bottom:32px}.feature-partner{padding:20px 12px}.feature-partner h3{font-size:16px}.feature-partner p{font-size:11px}}@media(max-width:360px){.feature-partners{grid-template-columns:1fr}}
+
+/* Keep the original gameplay chapters together before the searchable Pokedex. */
+.rare+.pokedex{margin-top:60px}
+@media(max-width:700px){.rare+.pokedex{margin-top:40px}}
