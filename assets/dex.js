@@ -16,7 +16,7 @@
   const cards=found.slice(page*36,page*36+36).map(({row:r,index})=>{
    const card=document.createElement('article');card.className='dex-card';
    const art=document.createElement('div');art.className='dex-art';art.setAttribute('role','img');art.setAttribute('aria-label',r[1]+' · '+r[3]+'展示缩略图');
-   art.style.backgroundImage=`url(../assets/dex/atlas-${String(Math.floor(index/100)).padStart(2,'0')}.webp)`;art.style.backgroundPosition=`-${index%10*96}px -${Math.floor(index%100/10)*96}px`;
+   art.style.backgroundImage=`url(${grid.dataset.imageBase || '../assets/dex/'}atlas-${String(Math.floor(index/100)).padStart(2,'0')}.webp)`;art.style.backgroundPosition=`-${index%10*96}px -${Math.floor(index%100/10)*96}px`;
    const number=document.createElement('small');number.textContent='#'+String(r[0]).padStart(4,'0');
    const title=document.createElement('h3');title.textContent=r[1];const english=document.createElement('span');english.className='dex-english';english.textContent=r[2];
    const form=document.createElement('p');form.textContent=r[3];const badge=document.createElement('span');badge.className='dex-badge';badge.textContent=categories[r[4]];

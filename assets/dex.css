@@ -28,3 +28,6 @@
 /* Keep the original gameplay chapters together before the searchable Pokedex. */
 .rare+.pokedex{margin-top:60px}
 @media(max-width:700px){.rare+.pokedex{margin-top:40px}}
+
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}.hero-actions .button{gap:12px;padding:13px 17px;white-space:nowrap}.hero-actions .button.secondary{background:#fff9f7e8;color:#aa456c;border-color:#e6bfd1;box-shadow:none}.hero-actions .button.secondary:hover{background:#fce8ef}.dex-page-heading{max-width:1240px;margin:40px auto 25px}.dex-back{font-size:13px;color:#aa456c}.dex-page-heading h1{font-size:40px;color:#634153;margin:18px 0 8px}.dex-page-heading>p{font-size:14px;color:#927383}.pokedex-page .pokedex{margin-top:0}.pokedex-page .site-footer{margin-top:55px}
+@media(max-width:1320px){.dex-page-heading{margin-left:40px;margin-right:40px}}@media(max-width:700px){.dex-page-heading{margin:28px 22px 22px}.dex-page-heading h1{font-size:32px}.hero-actions{gap:8px}.hero-actions .button{font-size:11px;padding:11px 12px;gap:8px}}

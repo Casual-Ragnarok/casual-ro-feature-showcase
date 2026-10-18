@@ -4,7 +4,7 @@ import {resolve,dirname,extname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const prohibited=/AegisName|SourceArchive|petskillattack|CaptureRate|pokemon_(?:mob|pet|item)_db|[DR]:[\\/]|\.(?:grf|spr|act|yml|ya?ml|csv|sql|zip)(?:["'\s?]|$)/i;
-for(const name of ['index.html','pokeworld/index.html']){
+for(const name of ['index.html','pokeworld/index.html','pokeworld/pokedex/index.html']){
  const text=await readFile(resolve(root,name),'utf8');assert(!prohibited.test(text),`Non-public content in ${name}`);
  for(const [label,url] of [['首页', 'https://casualro.top/'], ['NPC 索引', 'https://npc.casualro.top/'], ['脚本商城', 'https://store.casualro.top/'], ['文档资料', 'https://docs.casualro.top/'], ['补丁下载', 'https://grf.casualro.top/'], ['特色介绍', 'https://casual-ragnarok.github.io/casual-ro-feature-showcase/']])assert(text.includes('href="'+url+'"')&&text.includes('>'+label+'</a>'),`Missing navigation: ${name} / ${label}`);
  assert(text.includes('assets/sakura.css')&&text.includes('assets/fonts.css'),'Shared theme missing');
@@ -22,3 +22,5 @@ const data=await readFile(resolve(root,'assets/dex-data.js'),'utf8');assert(!pro
 for(let i=0;i<20;i++)await access(resolve(root,`assets/dex/atlas-${String(i).padStart(2,'0')}.webp`));console.log('PASS: approved watermarked display atlases.');
 
 assert(!/data-dex-query|dex-examples/.test(await readFile(resolve(root,'pokeworld/index.html'),'utf8')),'No preset search keywords');assert.equal(rows.filter(r=>r[0]===25&&r[3].includes('羁绊')).length,2);assert.equal(rows.filter(r=>r[0]===25&&r[3].includes('圣诞')).length,2);
+
+const intro=await readFile(resolve(root,'pokeworld/index.html'),'utf8');const catalog=await readFile(resolve(root,'pokeworld/pokedex/index.html'),'utf8');assert(!intro.includes('id="dex-search"')&&!intro.includes('assets/dex-data.js'),'Intro must not load the Pokedex');assert(intro.includes('class="hero-actions"')&&intro.includes('href="pokedex/"'));assert(catalog.includes('id="dex-search"')&&catalog.includes('data-image-base="../../assets/dex/"')&&catalog.includes('href="../"'));console.log('PASS: dedicated Pokedex page, return link and horizontal hero actions.');
