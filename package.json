@@ -1,0 +1,1 @@
+{"name":"casual-ro-feature-showcase","version":"1.0.0","private":true,"type":"module","description":"随缘仙境玩家向特色介绍","scripts":{"check":"node --check assets/world.js && node tools/check.mjs","build":"node tools/build.mjs"},"engines":{"node":">=22"}}
