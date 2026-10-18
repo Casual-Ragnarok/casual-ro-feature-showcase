@@ -6,7 +6,7 @@ const output=resolve(root,'dist');
 if((await lstat(output).catch(()=>null))?.isSymbolicLink())throw new Error('Linked output is not allowed');
 // Fixed repository/dist only; publication is an explicit allowlist.
 await rm(output,{recursive:true,force:true});
-for(const file of ['index.html','pokeworld/index.html','CNAME','assets/mark.svg','assets/world.css','assets/world.js','assets/pokeworld-journey.webp']){
+for(const file of ['index.html','pokeworld/index.html','assets/mark.svg','assets/world.css','assets/world.js','assets/pokeworld-journey.webp']){
  await mkdir(dirname(resolve(output,file)),{recursive:true});await cp(resolve(root,file),resolve(output,file));
 }
 await writeFile(resolve(output,'.nojekyll'),'');

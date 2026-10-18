@@ -11,5 +11,5 @@ for(const name of ['index.html','pokeworld/index.html']){
 }
 const script=await readFile(resolve(root,'assets/world.js'),'utf8');assert(!prohibited.test(script));assert(!/fetch\(|localStorage|innerHTML|https?:/.test(script),'No external data or script injection');
 for(const entry of await readdir(resolve(root,'assets')))assert(['.webp','.svg','.css','.js'].includes(extname(entry)),'Unexpected public asset');
-assert((await readFile(resolve(root,'CNAME'),'utf8')).trim()==='feature.casualro.top');
+assert((await readFile(resolve(root,'index.html'),'utf8')).includes('href="pokeworld/"'));
 console.log('PASS: links/assets, public content, no private game files or resource catalog.');

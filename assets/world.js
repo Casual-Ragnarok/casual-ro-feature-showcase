@@ -2,7 +2,7 @@
 // Public, illustrative editorial content only. No gameplay data or resource catalog.
 const partners = {
   pikachu: { dex:'0025', en:'PIKACHU', name:'皮卡丘', type:'电', element:'electric', symbol:'ϟ', role:'快一点，再快一点。', description:'灵活的步伐与迅捷的出手，是它最鲜明的特点。熟悉的电球、十万伏特，也会在仙境里有新的表现。', moves:['电球','十万伏特','高速移动'], detail:'速度型伙伴 · 电属性招式' },
-  bulbasaur: { dex:'0001', en:'BULBASAUR', name:'妙蛙种子', type:'草 / 毒', element:'grass', symbol:'♧', role:'从一片森林开始。', description:'背上的种子，藏着成长的可能。草与毒的属性，让它擅长用植物的力量与状态招式，慢慢掌握战斗节奏。', moves:['超级吸取','睡眠粉'], detail:'草与毒的组合 · 森林中的初次相遇' },
+  bulbasaur: { dex:'0001', en:'BULBASAUR', name:'妙蛙种子', type:'草 / 毒', element:'grass', symbol:'♧', role:'从一片森林开始。', description:'背上的种子，藏着成长的可能。草与毒的属性，让它擅长用植物的力量与状态招式，慢慢掌握战斗节奏。', moves:['超级吸取','毒击'], detail:'草与毒的组合 · 森林中的初次相遇' },
   charizard: { dex:'0006', en:'CHARIZARD', name:'喷火龙', type:'火 / 飞行', element:'fire', symbol:'♨', role:'让热爱，化作火焰。', description:'从小小的火苗，到展翼的身影。火属性的压迫感与飞行的灵活性，让喷火龙的每一次登场都更有气势。', moves:['火花','喷射火焰','大字爆炎','起风'], detail:'火焰与飞行 · 进化后的强大伙伴' },
   blastoise: { dex:'0009', en:'BLASTOISE', name:'水箭龟', type:'水', element:'water', symbol:'≈', role:'稳稳地，迎接下一场。', description:'厚重的龟壳带来可靠的防护，水流则是它反击的力量。在冒险队伍里，它是一位沉稳的伙伴。', moves:['水枪','水流尾','暴风雪','守住'], detail:'水属性伙伴 · 攻守兼备的成长方向' }
 };
