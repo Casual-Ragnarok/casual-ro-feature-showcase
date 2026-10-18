@@ -20,3 +20,6 @@
 @media(max-width:1120px){.hero{padding:48px 36px;min-height:620px}.hero .hero-copy{width:49%}.hero h1{font-size:66px}.hero h1 small{font-size:23px}.hero .hero-intro{font-size:23px}.hero .hero-scene .art-frame>img{object-position:60% center}}
 @media(max-width:800px){.hero{padding:36px 30px;min-height:600px}.hero .hero-copy{width:57%}.hero h1{font-size:59px}.hero .hero-intro{font-size:21px}.hero .hero-description{font-size:13px}.hero .hero-scene::after{background:linear-gradient(90deg,#fff9f7 0%,#fff9f7f5 36%,#fff9f7b3 53%,#fff9f726 78%)}.hero .hero-scene .art-frame>img{object-position:63% center}}
 @media(max-width:600px){.hero{padding:30px 24px 340px;min-height:800px}.hero .hero-copy{width:100%;max-width:none}.hero h1{font-size:clamp(45px,12vw,64px);margin-bottom:22px}.hero h1 small{font-size:22px}.hero .hero-intro{font-size:22px}.hero .hero-description{font-size:13px}.hero .hero-scene{inset:390px 0 0}.hero .hero-scene .art-frame>img{object-position:60% bottom}.hero .hero-scene::after{background:linear-gradient(180deg,#fff9f7 0%,#fff9f7cc 10%,#fff9f74d 27%,transparent 45%,#fff9f71a 100%)}.hero .hero-scene figcaption{right:12px;bottom:12px;font-size:7px}}
+
+/* Shift the desktop illustration one fifth of the hero width to the right. */
+@media(min-width:601px){.hero .hero-scene .art-frame>img{transform:translateX(20%)}}
