@@ -10,10 +10,10 @@ for(const name of ['index.html','pokeworld/index.html']){
  assert(text.includes('assets/sakura.css')&&text.includes('assets/fonts.css'),'Shared theme missing');
  assert(/href="https:\/\/casual-ragnarok.github.io\/casual-ro-feature-showcase\/" aria-current="page"/.test(text),'Feature navigation must be active');
  assert(text.includes('开发')&&text.includes('展示'));
- for(const [,url] of text.matchAll(/(?:src|href)="([^"#]+)"/g))if(!/^(https?:|mailto:)/.test(url))await access(resolve(dirname(resolve(root,name)),url.split('#')[0]));
+ for(const [,url] of text.matchAll(/(?:src|href)="([^"#]+)"/g))if(!/^(https?:|mailto:)/.test(url))await access(resolve(dirname(resolve(root,name)),url.split(/[?#]/)[0]));
 }
 const script=await readFile(resolve(root,'assets/world.js'),'utf8');assert(!prohibited.test(script));assert(!/fetch\(|localStorage|innerHTML|https?:/.test(script),'No external data or script injection');
-for(const entry of (await readdir(resolve(root,'assets'))).filter(name=>name!=='dex'))assert(['.webp','.svg','.css','.js'].includes(extname(entry)),'Unexpected public asset');
+for(const entry of (await readdir(resolve(root,'assets'))).filter(name=>name!=='dex'))assert(['.webp','.jpg','.svg','.css','.js'].includes(extname(entry)),'Unexpected public asset');
 assert((await readFile(resolve(root,'index.html'),'utf8')).includes('href="pokeworld/"'));
 console.log('PASS: links/assets, public content, no private game files or resource catalog.');
 

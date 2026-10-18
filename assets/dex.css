@@ -2,3 +2,7 @@
 @media(max-width:1320px){.pokedex{margin:55px 40px}}@media(max-width:1000px){.dex-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.pokemon-cast{padding:20px}.cast-grid{gap:10px}.cast-portrait strong{font-size:13px}}@media(max-width:700px){.pokedex{margin:45px 22px;padding:22px 14px;border-radius:22px}.dex-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.dex-tools input,.dex-tools select{width:100%}.pokemon-cast{min-height:450px;padding:18px}.hero-scene figcaption{font-size:8px}.feature-cover-image{aspect-ratio:auto}.dex-pagination{gap:12px}}
 
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+
+/* Owner-provided cover: preserve the whole composition at every breakpoint. */
+.hero-scene .art-frame{aspect-ratio:1376/768;border-radius:24px;background:#15233d}.hero-scene .art-frame>img{width:100%;height:100%;object-fit:contain;object-position:center}.feature-cover-image{background:#15233d;min-height:0;display:flex;align-items:center}.feature-cover-image>img{width:100%;height:auto;object-fit:contain}.feature-cover-image .cover-label{display:block}.hero-scene figcaption{flex-wrap:wrap}
+@media(max-width:1000px){.hero{grid-template-columns:1fr;gap:32px}.hero-scene{width:100%}.hero-scene .art-frame{aspect-ratio:1376/768;border-radius:22px}.hero-scene figcaption{flex-direction:row}}
