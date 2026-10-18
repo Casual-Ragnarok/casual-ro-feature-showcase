@@ -20,3 +20,5 @@ console.log('PASS: links/assets, public content, no private game files or resour
 const data=await readFile(resolve(root,'assets/dex-data.js'),'utf8');assert(!prohibited.test(data),'Private data in public catalog');const rows=JSON.parse(data.slice(data.indexOf('const POKEDEX = ')+'const POKEDEX = '.length).trim().replace(/;$/,''));assert.equal(rows.length,1941);assert.equal(new Set(rows.map(r=>r[0])).size,708);assert(rows.every(r=>r.length===5&&Number.isInteger(r[0])));const dexScript=await readFile(resolve(root,'assets/dex.js'),'utf8');assert(!prohibited.test(dexScript));assert(!/fetch\(|innerHTML|localStorage/.test(dexScript));console.log('PASS: 708 species / 1941 public display entries with public name and form fields only.');
 
 for(let i=0;i<20;i++)await access(resolve(root,`assets/dex/atlas-${String(i).padStart(2,'0')}.webp`));console.log('PASS: approved watermarked display atlases.');
+
+assert(!/data-dex-query|dex-examples/.test(await readFile(resolve(root,'pokeworld/index.html'),'utf8')),'No preset search keywords');assert.equal(rows.filter(r=>r[0]===25&&r[3].includes('羁绊')).length,2);assert.equal(rows.filter(r=>r[0]===25&&r[3].includes('圣诞')).length,2);

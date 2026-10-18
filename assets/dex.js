@@ -28,6 +28,5 @@
  }
  search.addEventListener('input',()=>update(true));filter.addEventListener('change',()=>update(true));
  prev.addEventListener('click',()=>{page--;update();});next.addEventListener('click',()=>{page++;update();});
- document.querySelectorAll('[data-dex-query]').forEach(button=>button.addEventListener('click',()=>{search.value=button.dataset.dexQuery;filter.value='';update(true);}));
  update();
 })();
