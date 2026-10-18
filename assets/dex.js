@@ -22,8 +22,8 @@
    const form=document.createElement('p');form.textContent=r[3];const badge=document.createElement('span');badge.className='dex-badge';badge.textContent=categories[r[4]];
    card.append(art,number,title,english,form,badge);return card;
   });
-  if(!cards.length){const empty=document.createElement('p');empty.className='dex-empty';empty.textContent='没有找到匹配的宝可梦，试试中文名称、英文名称或全国编号。';cards.push(empty);}
-  grid.replaceChildren(...cards);status.textContent=`找到 ${new Set(found.map(x=>x.row[0])).size} 种宝可梦 · ${found.length} 条外观记录`;
+  if(!cards.length){const empty=document.createElement('p');empty.className='dex-empty';empty.textContent='没有找到匹配的口袋妖怪，试试中文名称、英文名称或全国编号。';cards.push(empty);}
+  grid.replaceChildren(...cards);status.textContent=`找到 ${new Set(found.map(x=>x.row[0])).size} 种口袋妖怪 · ${found.length} 条外观记录`;
   pageLabel.textContent=`第 ${page+1} / ${pages} 页`;prev.disabled=page===0;next.disabled=page>=pages-1;
  }
  search.addEventListener('input',()=>update(true));filter.addEventListener('change',()=>update(true));
