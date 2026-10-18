@@ -20,3 +20,5 @@ npm run build
 GitHub Actions 从 main 构建，Pages 仅发布 dist 的白名单静态文件，不发布仓库其他内容。站点使用 GitHub Actions 和 GitHub Pages 默认地址。feature.casualro.top 当前无DNS记录；如需启用，先在DNS服务商添加 CNAME feature → casual-ragnarok.github.io，待解析及证书就绪后再绑定。
 
 主题插画由内置 imagegen 生成，提示词方向为“原创手绘幻想地貌、林间小径、溪流与远方城镇，无角色、无文字”。它是概念插画，并非游戏截图或从游戏包提取的图档。宝可梦及 Ragnarok Online 相关名称与角色权益归各自权利人所有，本站非官方联名。
+
+原创插画文件：`assets/pokeworld-journey.webp`（由生成PNG转换为WebP，仅作网页压缩，未使用游戏图档）。
