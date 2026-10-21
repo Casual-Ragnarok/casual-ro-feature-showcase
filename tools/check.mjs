@@ -6,10 +6,8 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const prohibited=/AegisName|SourceArchive|petskillattack|CaptureRate|pokemon_(?:mob|pet|item)_db|[DR]:[\\/]|\.(?:grf|spr|act|yml|ya?ml|csv|sql|zip)(?:["'\s?]|$)/i;
 for(const name of ['index.html','pokeworld/index.html','pokeworld/pokedex/index.html']){
  const text=await readFile(resolve(root,name),'utf8');assert(!prohibited.test(text),`Non-public content in ${name}`);
- for(const [label,url] of [['首页', 'https://casualro.top/'], ['NPC 索引', 'https://npc.casualro.top/'], ['脚本商城', 'https://store.casualro.top/'], ['文档资料', 'https://docs.casualro.top/'], ['补丁下载', 'https://grf.casualro.top/'], ['特色介绍', 'https://casual-ragnarok.github.io/casual-ro-feature-showcase/']])assert(text.includes('href="'+url+'"')&&text.includes('>'+label+'</a>'),`Missing navigation: ${name} / ${label}`);
- assert(text.includes('assets/sakura.css')&&text.includes('assets/fonts.css'),'Shared theme missing');
- assert(/href="https:\/\/casual-ragnarok.github.io\/casual-ro-feature-showcase\/" aria-current="page"/.test(text),'Feature navigation must be active');
- assert(text.includes('开发')&&/展示|介绍/.test(text));
+ assert(text.includes('https://repos.casualro.top/shared/site.css')&&text.includes('data-site="features"'),'Central theme missing');
+ assert(text.includes('https://repos.casualro.top/shared/site.js'),'Central navigation/footer missing');
  for(const [,url] of text.matchAll(/(?:src|href)="([^"#]+)"/g))if(!/^(https?:|mailto:)/.test(url))await access(resolve(dirname(resolve(root,name)),url.split(/[?#]/)[0]));
 }
 const script=await readFile(resolve(root,'assets/world.js'),'utf8');assert(!prohibited.test(script));assert(!/fetch\(|localStorage|innerHTML|https?:/.test(script),'No external data or script injection');
@@ -25,6 +23,6 @@ assert(!/data-dex-query|dex-examples/.test(await readFile(resolve(root,'pokeworl
 
 const intro=await readFile(resolve(root,'pokeworld/index.html'),'utf8');const catalog=await readFile(resolve(root,'pokeworld/pokedex/index.html'),'utf8');assert(!intro.includes('id="dex-search"')&&!intro.includes('assets/dex-data.js'),'Intro must not load the Pokedex');assert(intro.includes('class="hero-actions"')&&intro.includes('href="pokedex/"'));assert(catalog.includes('id="dex-search"')&&catalog.includes('data-image-base="../../assets/dex/"')&&catalog.includes('href="../"'));console.log('PASS: dedicated Pokedex page, return link and horizontal hero actions.');
 
-for(const page of ['index.html','pokeworld/index.html','pokeworld/pokedex/index.html']){const html=await readFile(resolve(root,page),'utf8');assert(html.includes('cro-footer-grid')&&html.includes('cro-footer-qr')&&html.includes('assets/favicon.svg?v=sakura')&&html.includes('assets/footer.css'),'Shared footer and favicon missing');}
+for(const page of ['index.html','pokeworld/index.html','pokeworld/pokedex/index.html']){const html=await readFile(resolve(root,page),'utf8');assert(html.includes('data-site="features"')&&html.includes('shared/site.js')&&html.includes('assets/favicon.svg?v=sakura'),'Shared footer entry and favicon missing');}
 
 const listing=await readFile(resolve(root,'index.html'),'utf8');assert(listing.includes('<article class="feature-cover"')&&listing.includes('class="feature-card-actions"'));assert(!listing.includes('class="directory-note"'));for(const html of [listing,intro]){const actions=html.match(/<div class="(?:feature-card-actions|hero-actions)">([\s\S]*?)<\/div>/)[1];assert.equal((actions.match(/class="action-icon"/g)||[]).length,2);assert(!/[↗↓→]/.test(actions),'No arrow icons in the four action buttons');}
